@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public Vector2 inputVec;
     public float speed;
 
+    GameObject scanObject;
+
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator animator;
@@ -20,27 +22,38 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        inputVec.x = Input.GetAxisRaw("Horizontal");
-        inputVec.y = Input.GetAxisRaw("Vertical");
+        
     }
 
     void FixedUpdate()
     {
         Vector2 moveVec = inputVec * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + moveVec);
+
+        //Ray
+        Debug.DrawRay(rigid.position, inputVec, new Color(0, 1, 0));
+        RaycastHit2D ray = Physics2D.Raycast(rigid.position, inputVec.normalized, 1f, LayerMask.GetMask("Object"));
+
+        if (ray.collider != null)
+        {
+            scanObject = ray.collider.gameObject;
+        }
+        else
+        {
+            scanObject = null;
+        }
     }
 
     void OnMove(InputValue value)
     {
+        //Move Action -> Using InputSystem
         inputVec = value.Get<Vector2>();
     }
 
@@ -51,7 +64,6 @@ public class Player : MonoBehaviour
         if(inputVec.x != 0)
         {
             spriteRenderer.flipX = inputVec.x < 0;
-
         }   
     }
 }
