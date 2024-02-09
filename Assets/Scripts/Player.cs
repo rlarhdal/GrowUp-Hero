@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.TextCore.Text;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XInput;
 
 public class Player : MonoBehaviour
 {
     public Vector2 inputVec;
     public float speed;
+    Vector2 dirVec;
 
     GameObject scanObject;
 
@@ -29,7 +32,28 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        
+        inputVec.x = Input.GetAxis("Horizontal");
+        inputVec.y = Input.GetAxis("Vertical");
+
+        if(inputVec.x == 0 && inputVec.y != 0)
+        {
+            if (inputVec.y == 1)
+                dirVec = Vector3.up;
+            else if (inputVec.y == -1)
+                dirVec = Vector3.down;
+        }
+        else
+        {
+            if(inputVec.x == 1)
+                dirVec = Vector3.right;
+            else if (inputVec.x == -1)
+                dirVec = Vector3.left;
+        }
+
+        if (Input.GetMouseButtonDown(0) && scanObject != null)
+        {
+            Debug.Log("This is : " + scanObject.name);
+        }
     }
 
     void FixedUpdate()
@@ -38,8 +62,8 @@ public class Player : MonoBehaviour
         rigid.MovePosition(rigid.position + moveVec);
 
         //Ray
-        Debug.DrawRay(rigid.position, inputVec, new Color(0, 1, 0));
-        RaycastHit2D ray = Physics2D.Raycast(rigid.position, inputVec.normalized, 1f, LayerMask.GetMask("Object"));
+        Debug.DrawRay(rigid.position, dirVec * 1.0f, Color.red);
+        RaycastHit2D ray = Physics2D.Raycast(rigid.position, dirVec * 1.0f, LayerMask.GetMask("Object"));
 
         if (ray.collider != null)
         {
