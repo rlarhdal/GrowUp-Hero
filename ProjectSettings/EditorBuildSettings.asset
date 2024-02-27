@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Basecamp.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: 4f9fd500a8c7f6a4ea008837f1f588bf
+  - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 4a70874618874394da85e8b30311e47a
+  - enabled: 1
+    path: Assets/Scenes/Dungeon.unity
+    guid: 7972c15de40a25d4c82aa66b4825c6ab
   m_configObjects: {}

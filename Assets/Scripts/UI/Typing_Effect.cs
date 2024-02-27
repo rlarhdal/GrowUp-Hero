@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,15 +11,16 @@ public class Typing_Effect : MonoBehaviour
 
     string dialogue;
 
-    // Start is called before the first frame update
     void Awake()
     {
         txt = GetComponent<Text>();
         dialogue = txt.text;
 
+        //코루틴 호출
         StartCoroutine(Typing(dialogue));
     }
 
+    //타이핑 딜레이를 위한 코루틴
     IEnumerator Typing(string title)
     {
         txt.text = null;
@@ -28,4 +30,5 @@ public class Typing_Effect : MonoBehaviour
             txt.text += title[i];
         }
     }
+
 }
