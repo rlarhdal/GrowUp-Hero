@@ -10,8 +10,11 @@ public class Player : MonoBehaviour
     public Vector2 inputVec;
     public float speed;
     Vector2 dirVec;
+    
+    //오브젝트 상호작용
+    public InteractiveObject InteractiveObject { set {  _interactiveObject = value; } }
+    private InteractiveObject _interactiveObject;
 
-    GameObject scanObject;
 
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
@@ -34,6 +37,7 @@ public class Player : MonoBehaviour
         inputVec.x = Input.GetAxis("Horizontal");
         inputVec.y = Input.GetAxis("Vertical");
 
+        //Player's Dir
         if(inputVec.x == 0 && inputVec.y != 0)
         {
             if (inputVec.y == 1)
@@ -49,9 +53,11 @@ public class Player : MonoBehaviour
                 dirVec = Vector3.left;
         }
 
-        if (Input.GetMouseButtonDown(0) && scanObject != null)
+
+        //scan object
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("This is : " + scanObject.name);
+            Interaction();
         }
     }
 
@@ -61,23 +67,16 @@ public class Player : MonoBehaviour
         rigid.MovePosition(rigid.position + moveVec);
 
         //Ray
-        Debug.DrawRay(rigid.position, dirVec * 1.0f, Color.red);
-        RaycastHit2D ray = Physics2D.Raycast(rigid.position, dirVec * 1.0f, LayerMask.GetMask("Object"));
-
-        if (ray.collider != null)
+        //Debug.DrawRay(rigid.position, dirVec * 1.0f, Color.red);
+        //RaycastHit2D ray = Physics2D.Raycast(rigid.position, dirVec * 1.0f, LayerMask.GetMask("Object"));
+        /*if (ray.collider != null)
         {
             scanObject = ray.collider.gameObject;
         }
         else
         {
             scanObject = null;
-        }
-    }
-
-    void OnMove(InputValue value)
-    {
-        //Move Action -> Using InputSystem
-        inputVec = value.Get<Vector2>();
+        }*/
     }
 
     void LateUpdate()
@@ -87,6 +86,20 @@ public class Player : MonoBehaviour
         if(inputVec.x != 0)
         {
             spriteRenderer.flipX = inputVec.x < 0;
-        }   
+        }
+    }
+
+    void OnMove(InputValue value)
+    {
+        //Move Action -> Using InputSystem
+        inputVec = value.Get<Vector2>();
+    }
+
+    private void Interaction()
+    {
+        if (_interactiveObject == null)
+            return;
+
+        _interactiveObject.Interaction();
     }
 }

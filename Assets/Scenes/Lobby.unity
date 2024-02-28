@@ -622,6 +622,8 @@ GameObject:
   - component: {fileID: 1401317306}
   - component: {fileID: 1401317308}
   - component: {fileID: 1401317307}
+  - component: {fileID: 1401317309}
+  - component: {fileID: 1401317310}
   m_Layer: 5
   m_Name: text_gamestart
   m_TagString: Untagged
@@ -690,6 +692,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401317305}
   m_CullTransparentMesh: 1
+--- !u!114 &1401317309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401317305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4239abcb2e1a3764e952d489ebf083e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentAlphaValue: 0
+  CommentMinAlpha: 0
+  CommentMaxAlpha: 0
+  CommentCurrentAlpha: 0
+  mytext: {fileID: 1401317307}
+--- !u!114 &1401317310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401317305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5803922}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1674061122
 GameObject:
   m_ObjectHideFlags: 0
