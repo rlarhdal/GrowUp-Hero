@@ -47,6 +47,7 @@ public class InteractiveObject : MonoBehaviour
                 break;
             case ObjectType.eDungeonGate:
                 Debug.Log("던전 입구입니다.");
+
                 break;
             case ObjectType.eStorageBox:
                 Debug.Log("저장소입니다.");
