@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+        //DontDestroyOnLoad(gameObject);
     }
 
     void Start()

@@ -27,7 +27,7 @@ public class Blinking_Effect : MonoBehaviour
     void Start()
     {
         CommentMinAlpha = 0.1f;
-        CommentMaxAlpha = 3f;
+        CommentMaxAlpha = 2f;
         CommentCurrentAlpha = 1f;
         currentAlphaValue = alphaValue.SHRINKING;
     }
@@ -42,7 +42,7 @@ public class Blinking_Effect : MonoBehaviour
     {
         if(currentAlphaValue == alphaValue.SHRINKING)
         {
-            CommentCurrentAlpha = CommentCurrentAlpha - 0.01f;
+            CommentCurrentAlpha = CommentCurrentAlpha - 0.001f;
             mytext.color = new Color(Color.black.r, Color.black.g, Color.black.b, CommentCurrentAlpha);
             if(CommentCurrentAlpha <= CommentMinAlpha)
             {
@@ -51,7 +51,7 @@ public class Blinking_Effect : MonoBehaviour
         }
         else if (currentAlphaValue == alphaValue.GROWING)
         {
-            CommentCurrentAlpha = CommentCurrentAlpha + 0.01f;
+            CommentCurrentAlpha = CommentCurrentAlpha + 0.001f;
             mytext.color = new Color(Color.black.r, Color.black.g, Color.black.b, CommentCurrentAlpha);
             if (CommentCurrentAlpha >= CommentMaxAlpha)
             {

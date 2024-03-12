@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ObjectState;
+using UnityEngine.SceneManagement;
 
 
 public class InteractiveObject : MonoBehaviour
@@ -17,23 +18,6 @@ public class InteractiveObject : MonoBehaviour
 
     public void Interaction()
     {
-        /*if (ObjectType == ObjectType.eItemObject)
-        {
-            
-        }
-        else if (ObjectType == ObjectType.eCraftBox)
-        {
-            Debug.Log("크래프팅 박스입니다.");
-        }
-        else if (ObjectType == ObjectType.eStorageBox)
-        {
-            Debug.Log("저장소입니다.");
-        }
-        else if (ObjectType == ObjectType.eDungeonGate)
-        {
-            Debug.Log("던전 입구입니다.");
-        }*/
-
         switch (ObjectType)
         {
             case ObjectType.eItemObject:
@@ -47,7 +31,7 @@ public class InteractiveObject : MonoBehaviour
                 break;
             case ObjectType.eDungeonGate:
                 Debug.Log("던전 입구입니다.");
-
+                GameManager.instance.uIManager.gameObject.SetActive(true);
                 break;
             case ObjectType.eStorageBox:
                 Debug.Log("저장소입니다.");
@@ -81,4 +65,5 @@ public class InteractiveObject : MonoBehaviour
             }
         }
     }
+
 }
