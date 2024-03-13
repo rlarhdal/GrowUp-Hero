@@ -2727,7 +2727,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4.7135415
+  orthographic size: 4.6302085
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2752,7 +2752,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.008391648, y: 0.0037399998, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3419,7 +3419,6 @@ GameObject:
   m_Component:
   - component: {fileID: 776613179}
   - component: {fileID: 776613178}
-  - component: {fileID: 776613180}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -3482,21 +3481,6 @@ Transform:
   - {fileID: 750228475}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &776613180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776613177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BoundingShape2D: {fileID: 14246670}
-  m_Damping: 0
-  m_MaxWindowSize: -1
 --- !u!4 &776987159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1952211219827112603, guid: 03cfd7a0ed7ceaf44b173d6e4fe0d3c5, type: 3}
